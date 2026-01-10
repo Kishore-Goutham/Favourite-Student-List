@@ -30,15 +30,15 @@ function Studentlist() {
     }
 
     function handleChange(event){
-        let value = event.target.value;
-        let key = event.target.id
+        let value = event.target.value.trim();
+        let key = event.target.id.trim()
         setStudent({...student,[key]:value})
     }
 
     function handleClick(){
-       if("rollno" in student && "name" in student){
+       if(student.rollno && student.name){
          setStudentlist([...studentlist,student])
-             setStudent({fav:false})
+             setStudent({fav:false,name:"",rollno:""})
        }
     }
 
@@ -55,8 +55,8 @@ function Studentlist() {
 
         <div className='my-5'>
           <p className='mb-2 font-medium text-lg text-slate-500'>Add Student</p>
-          <input className='border border-slate-400 p-2 rounded-md' id='rollno' placeholder='Roll.no' onChange={handleChange}/>
-          <input className='border border-slate-400 p-2 rounded-md mt-1 md:ml-2' id='name' placeholder='Student Name' onChange={handleChange}/>
+          <input className='border border-slate-400 p-2 rounded-md' id='rollno' placeholder='Roll.no' value={student.rollno} onChange={handleChange}/>
+          <input className='border border-slate-400 p-2 rounded-md mt-1 md:ml-2' id='name' placeholder='Student Name' value={student.name} onChange={handleChange}/>
           <button className='bg-blue-500 p-2 w-16 text-white rounded-md ml-5' onClick={handleClick}>Add</button>
         </div>
 
