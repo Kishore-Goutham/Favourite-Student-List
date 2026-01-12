@@ -35,7 +35,7 @@ function FavStudentlist() {
     })
 
   return (
-     <div className='p-5'>
+     <div className='px-5 py-2'>
         <div className='border'>
         <Navbar/>
 
